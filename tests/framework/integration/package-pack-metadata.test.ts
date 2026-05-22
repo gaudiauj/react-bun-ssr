@@ -27,6 +27,7 @@ describe("packed package metadata", () => {
     expect(packedPackage.name).toBe("react-bun-ssr");
     expect(packedPackage.exports?.["."]).toBeDefined();
     expect(packedPackage.exports?.["./route"]).toBeDefined();
+    expect(packedPackage.exports?.["./image"]).toBeDefined();
     expect(packedPackage.bin?.rbssr).toBe("bin/rbssr.ts");
     expect(packedPackage.peerDependencies?.react).toBe("^19");
     expect(packedPackage.peerDependencies?.["react-dom"]).toBe("^19");
@@ -34,5 +35,8 @@ describe("packed package metadata", () => {
     expect(packedPackage.dependencies?.["@datadog/browser-rum-react"]).toBeUndefined();
     expect(packedFiles).toContain("package/framework/runtime/render.tsx");
     expect(packedFiles).toContain("package/framework/runtime/doctype-stream.ts");
+    expect(packedFiles).toContain("package/framework/runtime/image.tsx");
+    expect(packedFiles).toContain("package/framework/runtime/image-api.ts");
+    expect(packedFiles).toContain("package/framework/runtime/image-optimizer.server.ts");
   });
 });

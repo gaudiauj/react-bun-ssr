@@ -5,11 +5,20 @@ describe("package dependency ownership", () => {
     const rootPackage = await Bun.file("package.json").json() as {
       workspaces?: string[];
       dependencies?: Record<string, string>;
+      exports?: Record<string, { types?: string; default?: string }>;
+      engines?: Record<string, string>;
+      devDependencies?: Record<string, string>;
     };
 
     expect(rootPackage.workspaces).toContain("app");
     expect(rootPackage.dependencies?.["@datadog/browser-rum"]).toBeUndefined();
     expect(rootPackage.dependencies?.["@datadog/browser-rum-react"]).toBeUndefined();
+    expect(rootPackage.engines?.bun).toBe(">=1.3.14");
+    expect(rootPackage.devDependencies?.["bun-types"]).toBe("1.3.14");
+    expect(rootPackage.exports?.["./image"]).toEqual({
+      types: "./framework/runtime/image-api.ts",
+      default: "./framework/runtime/image-api.ts",
+    });
   });
 
   it("assigns docs-app runtime dependencies to app/package.json", async () => {

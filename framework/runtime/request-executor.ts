@@ -25,6 +25,7 @@ import {
   toRouteErrorHttpResponse,
   toRouteErrorResponse,
 } from "./route-errors";
+import { handleImageOptimizerRequest, isImageOptimizerRequest } from "./image-optimizer.server";
 import { sortRoutesBySpecificity } from "./route-order";
 import { applyResponseContext } from "./response-context";
 import {
@@ -109,6 +110,7 @@ type ResponseKind =
   | "html"
   | "api"
   | "internal-dev"
+  | "internal-image"
   | "internal-transition"
   | "internal-action";
 
@@ -723,6 +725,15 @@ export function createRequestExecutor(options: {
           "cache-control": "no-store",
         },
       }), "internal-dev");
+    }
+
+    if (isImageOptimizerRequest(url)) {
+      const response = await handleImageOptimizerRequest({
+        request,
+        url,
+        config: activeConfig,
+      });
+      return finalize(response, "internal-image");
     }
 
     if (dev && url.pathname.startsWith("/__rbssr/client/")) {

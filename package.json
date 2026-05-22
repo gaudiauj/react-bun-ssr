@@ -38,7 +38,7 @@
     "access": "public"
   },
   "engines": {
-    "bun": ">=1.3.10"
+    "bun": ">=1.3.14"
   },
   "files": [
     "bin",
@@ -57,6 +57,10 @@
     "./route": {
       "types": "./framework/runtime/route-api.ts",
       "default": "./framework/runtime/route-api.ts"
+    },
+    "./image": {
+      "types": "./framework/runtime/image-api.ts",
+      "default": "./framework/runtime/image-api.ts"
     }
   },
   "scripts": {
@@ -91,7 +95,7 @@
     "@playwright/test": "^1.54.2",
     "@types/react": "^19",
     "@types/react-dom": "^19",
-    "bun-types": "1.3.10",
+    "bun-types": "1.3.14",
     "react": "^19",
     "react-dom": "^19",
     "typescript": "^5.9.2"

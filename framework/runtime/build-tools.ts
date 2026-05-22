@@ -21,6 +21,7 @@ import { normalizeSlashes, stableHash, toImportPath } from './utils';
 const BUILD_OPTIMIZE_IMPORTS = [
   'react-bun-ssr',
   'react-bun-ssr/route',
+  'react-bun-ssr/image',
   'react',
   'react-dom',
 ];
@@ -313,6 +314,28 @@ export function createClientEntrySetSignature(entries: ClientEntryFile[]): strin
   );
 }
 
+export function createClientBuildConfig(options: {
+  entrypoints: string[];
+  outDir: string;
+  dev: boolean;
+}): Bun.BuildConfig {
+  return {
+    entrypoints: options.entrypoints,
+    outdir: options.outDir,
+    target: 'browser',
+    format: 'esm',
+    metafile: true,
+    optimizeImports: BUILD_OPTIMIZE_IMPORTS,
+    splitting: true,
+    sourcemap: options.dev ? 'inline' : 'external',
+    minify: !options.dev,
+    naming: options.dev ? '[name].[ext]' : '[name]-[hash].[ext]',
+    define: {
+      "process.env.NODE_ENV": JSON.stringify(options.dev ? "development" : "production"),
+    },
+  };
+}
+
 export async function bundleClientEntries(options: {
   entries: ClientEntryFile[];
   outDir: string;
@@ -327,19 +350,11 @@ export async function bundleClientEntries(options: {
   }
 
   const result = await Bun.build({
-    entrypoints: entries.map((entry) => entry.entryFilePath),
-    outdir: outDir,
-    target: 'browser',
-    format: 'esm',
-    metafile: true,
-    optimizeImports: BUILD_OPTIMIZE_IMPORTS,
-    splitting: true,
-    sourcemap: dev ? 'inline' : 'external',
-    minify: !dev,
-    naming: dev ? '[name].[ext]' : '[name]-[hash].[ext]',
-    define: {
-      "process.env.NODE_ENV": JSON.stringify(dev ? "development" : "production"),
-    },
+    ...createClientBuildConfig({
+      entrypoints: entries.map((entry) => entry.entryFilePath),
+      outDir,
+      dev,
+    }),
   });
 
   if (!result.success) {

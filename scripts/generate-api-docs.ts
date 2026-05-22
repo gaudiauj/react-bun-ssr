@@ -542,6 +542,54 @@ export default function DashboardPage() {
         },
       ],
     },
+    {
+      slug: "react-bun-ssr-image",
+      source: path.join(ROOT, "framework/runtime/image-api.ts"),
+      title: "react-bun-ssr Image Component API Reference",
+      navTitle: "react-bun-ssr/image",
+      description: "Reference the dedicated Image component entrypoint for local public image optimization through Bun.Image in Bun-native React SSR apps.",
+      section: "API",
+      order: 5,
+      intro:
+        "Import from `react-bun-ssr/image` when you want optimized image markup backed by the framework image endpoint. This entrypoint is separate from route APIs so image rendering stays explicit and tree-shakeable.",
+      examples: [
+        {
+          title: "Responsive local image",
+          code: `import { Image } from "react-bun-ssr/image";
+
+export default function CourseCard() {
+  return (
+    <Image
+      src="/images/course-cover.jpg"
+      alt="Course cover"
+      width={1200}
+      height={630}
+      sizes="(max-width: 768px) 100vw, 50vw"
+      priority
+    />
+  );
+}`,
+        },
+        {
+          title: "Fill layout",
+          code: `import { Image } from "react-bun-ssr/image";
+
+export default function HeroImage() {
+  return (
+    <div style={{ position: "relative", aspectRatio: "16 / 9" }}>
+      <Image
+        src="/images/hero.jpg"
+        alt="Hero"
+        fill
+        sizes="100vw"
+        fit="cover"
+      />
+    </div>
+  );
+}`,
+        },
+      ],
+    },
   ];
 
   const program = ts.createProgram({

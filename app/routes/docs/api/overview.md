@@ -10,7 +10,7 @@ tags: api,reference,entrypoints
 
 # API Overview
 
-The framework exposes two primary entrypoints.
+The framework exposes three primary entrypoints.
 
 ## `react-bun-ssr`
 
@@ -34,6 +34,17 @@ Use the route entrypoint inside application routes for:
 - nested layout rendering through `Outlet`
 
 Go to [react-bun-ssr/route](/docs/api/react-bun-ssr-route).
+
+## `react-bun-ssr/image`
+
+Use the image entrypoint when routes or shared components render optimized local public images.
+
+
+```tsx
+import { Image } from "react-bun-ssr/image";
+```
+
+Go to [react-bun-ssr/image](/docs/api/react-bun-ssr-image).
 
 ## Bun runtime mapping
 

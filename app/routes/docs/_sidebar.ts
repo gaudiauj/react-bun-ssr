@@ -150,6 +150,12 @@ export const sidebar: SidebarSection[] = [
         description: "Serve static images, fonts, and icons with predictable cache and URL behavior.",
         kind: "reference",
       },
+      {
+        title: "Images",
+        slug: "styling/images",
+        description: "Render optimized local public images through the dedicated Image component.",
+        kind: "guide",
+      },
     ],
   },
   {
@@ -232,6 +238,12 @@ export const sidebar: SidebarSection[] = [
         title: "react-bun-ssr/route",
         slug: "api/react-bun-ssr-route",
         description: "Route-module hooks, types, helpers, and client navigation primitives.",
+        kind: "api",
+      },
+      {
+        title: "react-bun-ssr/image",
+        slug: "api/react-bun-ssr-image",
+        description: "Dedicated Image component exports for Bun-backed image optimization.",
         kind: "api",
       },
     ],

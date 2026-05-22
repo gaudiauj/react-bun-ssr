@@ -965,6 +965,65 @@
       }
     ],
     "prevSlug": "styling/global-css",
+    "nextSlug": "styling/images"
+  },
+  {
+    "slug": "styling/images",
+    "title": "Optimized Images for Bun React SSR Apps",
+    "navTitle": "Images",
+    "description": "Render local public images with the dedicated react-bun-ssr Image component and Bun.Image-backed optimization in Bun React SSR apps.",
+    "section": "Styling",
+    "kind": "guide",
+    "order": 19,
+    "tags": [
+      "images",
+      "assets",
+      "optimization",
+      "bun-image"
+    ],
+    "headings": [
+      {
+        "depth": 2,
+        "id": "fixed-images",
+        "text": "Fixed images"
+      },
+      {
+        "depth": 2,
+        "id": "responsive-images",
+        "text": "Responsive images"
+      },
+      {
+        "depth": 2,
+        "id": "fill-layout",
+        "text": "Fill layout"
+      },
+      {
+        "depth": 2,
+        "id": "priority-images",
+        "text": "Priority images"
+      },
+      {
+        "depth": 2,
+        "id": "blur-placeholders",
+        "text": "Blur placeholders"
+      },
+      {
+        "depth": 2,
+        "id": "current-limits",
+        "text": "Current limits"
+      },
+      {
+        "depth": 2,
+        "id": "related-apis",
+        "text": "Related APIs"
+      },
+      {
+        "depth": 2,
+        "id": "next-step",
+        "text": "Next step"
+      }
+    ],
+    "prevSlug": "styling/public-assets",
     "nextSlug": "tooling/dev-server"
   },
   {
@@ -974,7 +1033,7 @@
     "description": "Understand the react-bun-ssr dev server workflow for Bun watch mode, rebuild signatures, transition endpoints, and reload semantics.",
     "section": "Tooling",
     "kind": "reference",
-    "order": 19,
+    "order": 20,
     "tags": [
       "dev",
       "watch",
@@ -1003,7 +1062,7 @@
         "text": "Next step"
       }
     ],
-    "prevSlug": "styling/public-assets",
+    "prevSlug": "styling/images",
     "nextSlug": "tooling/cli"
   },
   {
@@ -1013,7 +1072,7 @@
     "description": "Use rbssr CLI commands to initialize, develop, typecheck, build, start, and preview Bun-native React SSR projects with react-bun-ssr.",
     "section": "Tooling",
     "kind": "reference",
-    "order": 20,
+    "order": 21,
     "tags": [
       "cli",
       "rbssr",
@@ -1056,7 +1115,7 @@
     "description": "Test react-bun-ssr projects across unit, integration, and end-to-end layers while preserving SSR behavior and route coverage.",
     "section": "Tooling",
     "kind": "reference",
-    "order": 21,
+    "order": 22,
     "tags": [
       "tests",
       "unit",
@@ -1100,7 +1159,7 @@
     "description": "Inspect the react-bun-ssr production build output, including client assets, route manifests, copied public files, and the Bun server entry.",
     "section": "Tooling",
     "kind": "reference",
-    "order": 22,
+    "order": 23,
     "tags": [
       "build",
       "manifest",
@@ -1143,7 +1202,7 @@
     "description": "Deploy react-bun-ssr apps on Bun with production build output, server startup, public assets, and a small runtime surface without a Node adapter.",
     "section": "Deployment",
     "kind": "guide",
-    "order": 23,
+    "order": 24,
     "tags": [
       "deploy",
       "bun",
@@ -1182,7 +1241,7 @@
     "description": "Configure react-bun-ssr deployment settings for headers, ports, public paths, server bytecode behavior, and Bun production runtime defaults.",
     "section": "Deployment",
     "kind": "reference",
-    "order": 24,
+    "order": 25,
     "tags": [
       "config",
       "headers",
@@ -1225,7 +1284,7 @@
     "description": "Debug react-bun-ssr hydration mismatches, stale generated artifacts, deployment failures, and Bun runtime issues in production SSR apps.",
     "section": "Deployment",
     "kind": "reference",
-    "order": 25,
+    "order": 26,
     "tags": [
       "troubleshooting",
       "hydration",
@@ -1274,7 +1333,7 @@
     "description": "Choose the right react-bun-ssr package entrypoint for Bun server startup, route modules, hooks, helpers, and generated TypeScript signatures.",
     "section": "API",
     "kind": "reference",
-    "order": 26,
+    "order": 27,
     "tags": [
       "api",
       "reference",
@@ -1290,6 +1349,11 @@
         "depth": 2,
         "id": "react-bun-ssr-route",
         "text": "react-bun-ssr/route"
+      },
+      {
+        "depth": 2,
+        "id": "react-bun-ssr-image",
+        "text": "react-bun-ssr/image"
       },
       {
         "depth": 2,
@@ -1322,7 +1386,7 @@
     "description": "Map the Bun-native APIs behind react-bun-ssr to public framework features, internal runtime behavior, and the official Bun documentation.",
     "section": "API",
     "kind": "reference",
-    "order": 27,
+    "order": 28,
     "tags": [
       "bun",
       "api",
@@ -1386,7 +1450,7 @@
     "description": "Reference the public react-bun-ssr runtime exports for Bun server startup, framework config, JSON helpers, redirects, and deployment types.",
     "section": "API",
     "kind": "api",
-    "order": 28,
+    "order": 29,
     "tags": [
       "api",
       "generated"
@@ -1663,7 +1727,7 @@
     "description": "Reference route module contracts, loaders, actions, hooks, navigation helpers, and error primitives for Bun-native React SSR routes.",
     "section": "API",
     "kind": "api",
-    "order": 29,
+    "order": 30,
     "tags": [
       "api",
       "generated"
@@ -1906,6 +1970,53 @@
       }
     ],
     "prevSlug": "api/react-bun-ssr",
+    "nextSlug": "api/react-bun-ssr-image"
+  },
+  {
+    "slug": "api/react-bun-ssr-image",
+    "title": "react-bun-ssr Image Component API Reference",
+    "navTitle": "react-bun-ssr/image",
+    "description": "Reference the dedicated Image component entrypoint for local public image optimization through Bun.Image in Bun-native React SSR apps.",
+    "section": "API",
+    "kind": "api",
+    "order": 31,
+    "tags": [
+      "api",
+      "generated"
+    ],
+    "headings": [
+      {
+        "depth": 2,
+        "id": "examples",
+        "text": "Examples"
+      },
+      {
+        "depth": 3,
+        "id": "responsive-local-image",
+        "text": "Responsive local image"
+      },
+      {
+        "depth": 3,
+        "id": "fill-layout",
+        "text": "Fill layout"
+      },
+      {
+        "depth": 2,
+        "id": "exported-symbols",
+        "text": "Exported symbols"
+      },
+      {
+        "depth": 2,
+        "id": "image",
+        "text": "Image"
+      },
+      {
+        "depth": 2,
+        "id": "imageprops",
+        "text": "ImageProps"
+      }
+    ],
+    "prevSlug": "api/react-bun-ssr-route",
     "nextSlug": "migration/from-demo-template"
   },
   {
@@ -1915,7 +2026,7 @@
     "description": "Move an older react-bun-ssr demo-style setup to the current docs-first Bun-native project structure, route layout, and framework defaults.",
     "section": "Migration",
     "kind": "migration",
-    "order": 30,
+    "order": 32,
     "tags": [
       "migration",
       "template",
@@ -1948,6 +2059,6 @@
         "text": "Next step"
       }
     ],
-    "prevSlug": "api/react-bun-ssr-route"
+    "prevSlug": "api/react-bun-ssr-image"
   }
 ]

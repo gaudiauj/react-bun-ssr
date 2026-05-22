@@ -3,6 +3,7 @@ import { afterEach, describe, expect, it } from "bun:test";
 import {
   buildRouteManifest,
   bundleClientEntries,
+  createClientBuildConfig,
   generateClientEntries,
 } from "../../../framework/runtime/build-tools";
 import { resolveConfig } from "../../../framework/runtime/config";
@@ -14,6 +15,18 @@ afterEach(async () => {
   for (const dir of tmpDirs.splice(0, tmpDirs.length)) {
     await removePath(dir);
   }
+});
+
+describe("client build config", () => {
+  it("optimizes the dedicated image package entrypoint", () => {
+    const config = createClientBuildConfig({
+      entrypoints: ["/tmp/example/entry.tsx"],
+      outDir: "/tmp/example/out",
+      dev: false,
+    });
+
+    expect(config.optimizeImports).toContain("react-bun-ssr/image");
+  });
 });
 
 async function writeFixture(root: string, files: Record<string, string>): Promise<void> {

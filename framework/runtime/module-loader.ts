@@ -13,6 +13,7 @@ const serverBundlePathCache = new Map<string, Promise<string>>();
 const BUILD_OPTIMIZE_IMPORTS = [
   'react-bun-ssr',
   'react-bun-ssr/route',
+  'react-bun-ssr/image',
   'react',
   'react-dom',
 ];
@@ -24,6 +25,7 @@ const SERVER_BUILD_EXTERNAL = [
   'react/jsx-dev-runtime',
   'react-bun-ssr',
   'react-bun-ssr/route',
+  'react-bun-ssr/image',
 ];
 
 export interface RouteModuleLoadOptions {

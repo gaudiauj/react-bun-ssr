@@ -32,6 +32,7 @@ describe("module loader server bytecode", () => {
     expect(config.format).toBe("cjs");
     expect(config.bytecode).toBe(true);
     expect(config.optimizeImports).toContain("react-bun-ssr");
+    expect(config.optimizeImports).toContain("react-bun-ssr/image");
     expect(config.optimizeImports).toContain("react");
   });
 
@@ -46,5 +47,6 @@ describe("module loader server bytecode", () => {
     expect(config.format).toBe("esm");
     expect(config.bytecode).toBe(false);
     expect(config.optimizeImports).toContain("react-bun-ssr/route");
+    expect(config.optimizeImports).toContain("react-bun-ssr/image");
   });
 });
